@@ -30,4 +30,7 @@ router.get('/boxList', service.getBoxList);
 
 //人群预测和垃圾总量预测
 router.get('/predict', service.getPredict);
+
+//垃圾箱--实时数据变化情况
+router.get('/boxDetail', service.getBoxDetail);
 module.exports = router;

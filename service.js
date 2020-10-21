@@ -105,3 +105,24 @@ exports.getPredict = (req, res) => {
         res.json(results)
     });
 }
+
+
+//实时数据取出再写入数据库处理
+exports.getBoxDetail = (req, res) => {
+    let data = connection.query('select * from `Case_Data` order by `LOG_ID` desc limit 0,1;', function(error, results, fields) {
+        if (error) {
+            console.log(error)
+        };
+        results = JSON.stringify(results)
+        results = JSON.parse(results);
+        let value1 = parseInt(((60 - results[0].VALUME1) / 60) * 100)
+        let value2 = parseInt(((60 - results[0].VALUME2) / 60) * 100)
+        let value3 = parseInt(((60 - results[0].VALUME3) / 60) * 100)
+        let value4 = parseInt(((60 - results[0].VALUME4) / 60) * 100)
+        results[0].recycled = value1
+        results[0].hazardous = value2
+        results[0].kitchen = value3
+        results[0].other = value4
+        res.json(results);
+    });
+}
