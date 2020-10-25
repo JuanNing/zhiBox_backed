@@ -11,42 +11,94 @@
 [{"LOG_ID":53,"TIME":"2020-09-05 16:01:01","TEMP":"26","HUMI":"61","NUMBER":"3","WEIGHT1":"1","WEIGHT2":"4","WEIGHT3":"0","WEIGHT4":"18","SMOKE":"0.556","VALUME1":"10","VALUME2":"20","VALUME3":"30","VALUME4":"25","PEOPLE":"17","POST":"1","TYPE1":"16","STATE":"0","STATE1":"1"}]
 ```
 
-## 获取日表垃圾桶数据
-- 路径：daily
+
+
+# :cherry_blossom:优化后
+
+## 查询垃圾回收总量
+
+- 路径：recovery
 - 请求参数：无
 - 请求类型：get
 - 响应结果
 
 ```json
-[{"TIME":"2020-09-05","WEIGHT1":"300","WEIGHT2":"200","WEIGHT3":"300","WEIGHT4":"100","VALUME1":"300","VALUME2":"300","VALUME3":"100","VALUME4":"300","PEOPLE":"100"},{"TIME":"2020-09-06","WEIGHT1":"300","WEIGHT2":"300","WEIGHT3":"300","WEIGHT4":"300","VALUME1":"100","VALUME2":"300","VALUME3":"300","VALUME4":"100","PEOPLE":"300"},{"TIME":"2020-09-07","WEIGHT1":"300","WEIGHT2":"200","WEIGHT3":"100","WEIGHT4":"300","VALUME1":"300","VALUME2":"300","VALUME3":"100","VALUME4":"300","PEOPLE":"100"},{"TIME":"2020-09-08","WEIGHT1":"300","WEIGHT2":"300","WEIGHT3":"100","WEIGHT4":"300","VALUME1":"100","VALUME2":"300","VALUME3":"300","VALUME4":"300","PEOPLE":"100"},{"TIME":"2020-09-09","WEIGHT1":"100","WEIGHT2":"300","WEIGHT3":"300","WEIGHT4":"100","VALUME1":"300","VALUME2":"100","VALUME3":"300","VALUME4":"100","PEOPLE":"300"},{"TIME":"2020-09-10","WEIGHT1":"300","WEIGHT2":"100","WEIGHT3":"300","WEIGHT4":"300","VALUME1":"100","VALUME2":"300","VALUME3":"300","VALUME4":"100","PEOPLE":"300"},{"TIME":"2020-09-11","WEIGHT1":"300","WEIGHT2":"300","WEIGHT3":"100","WEIGHT4":"300","VALUME1":"300","VALUME2":"100","VALUME3":"300","VALUME4":"300","PEOPLE":"100"}]
+[{id: 1, recycled: 102400, hazardous: 81212, kitchen: 9280, other: 13600}]
 ```
 
-## 获取周表垃圾桶数据
-- 路径：weekly
+## 获取一天的垃圾桶数据
+- 路径：monitorDay
 - 请求参数：无
 - 请求类型：get
 - 响应结果
 
 ```json
-[{"TIME":"2020-09-01","WEIGHT1":"1800","WEIGHT2":"1600","WEIGHT3":"1900","WEIGHT4":"1900","VALUME1":"2000","VALUME2":"2000","VALUME3":"2100","VALUME4":"2300","PEOPLE":"7860"},{"TIME":"2020-09-08","WEIGHT1":"2000","WEIGHT2":"1800","WEIGHT3":"1800","WEIGHT4":"1800","VALUME1":"1600","VALUME2":"1800","VALUME3":"1900","VALUME4":"1800","PEOPLE":"8570"},{"TIME":"2020-09-07","WEIGHT1":"2000","WEIGHT2":"1900","WEIGHT3":"1800","WEIGHT4":"2000","VALUME1":"2000","VALUME2":"1800","VALUME3":"1800","VALUME4":"2000","PEOPLE":"6980"},{"TIME":"2020-09-22","WEIGHT1":"1800","WEIGHT2":"1600","WEIGHT3":"1600","WEIGHT4":"1900","VALUME1":"1800","VALUME2":"1600","VALUME3":"1900","VALUME4":"1800","PEOPLE":"8540"},{"TIME":"2020-09-29","WEIGHT1":"1600","WEIGHT2":"1800","WEIGHT3":"1800","WEIGHT4":"1800","VALUME1":"1900","VALUME2":"1800","VALUME3":"1800","VALUME4":"1600","PEOPLE":"7860"}]
+[{id: 1, day: 1, recycled: 120, hazardous: 100, kitchen: 60, other: 10},…]
 ```
 
-## 获取月表垃圾桶数据
-- 路径：monthly
+## 获取一周垃圾桶数据
+- 路径：monitorWeek
 - 请求参数：无
 - 请求类型：get
 - 响应结果
 
 ```json
-[{"TIME":"2020-02","WEIGHT1":"7000","WEIGHT2":"5000","WEIGHT3":"6000","WEIGHT4":"7000","VALUME1":"6000","VALUME2":"800","VALUME3":"700","VALUME4":"600","PEOPLE":"25692"},{"TIME":"2020-03","WEIGHT1":"9000","WEIGHT2":"5000","WEIGHT3":"6000","WEIGHT4":"7000","VALUME1":"6000","VALUME2":"8000","VALUME3":"7000","VALUME4":"6000","PEOPLE":"26541"},{"TIME":"2020-04","WEIGHT1":"7000","WEIGHT2":"8000","WEIGHT3":"8000","WEIGHT4":"7000","VALUME1":"7000","VALUME2":"8000","VALUME3":"5000","VALUME4":"6000","PEOPLE":"21598"},{"TIME":"2020-05","WEIGHT1":"7000","WEIGHT2":"5000","WEIGHT3":"5000","WEIGHT4":"6000","VALUME1":"7000","VALUME2":"5000","VALUME3":"8000","VALUME4":"8000","PEOPLE":"29260"},{"TIME":"2020-06","WEIGHT1":"9000","WEIGHT2":"5000","WEIGHT3":"5000","WEIGHT4":"6000","VALUME1":"9000","VALUME2":"5000","VALUME3":"5000","VALUME4":"5000","PEOPLE":"26492"},{"TIME":"2020-07","WEIGHT1":"7000","WEIGHT2":"5000","WEIGHT3":"5000","WEIGHT4":"6000","VALUME1":"7000","VALUME2":"5000","VALUME3":"5000","VALUME4":"5000","PEOPLE":"21569"},{"TIME":"2020-08","WEIGHT1":"6000","WEIGHT2":"8000","WEIGHT3":"8000","WEIGHT4":"7000","VALUME1":"6000","VALUME2":"8000","VALUME3":"5000","VALUME4":"5000","PEOPLE":"29859"},{"TIME":"2020-09","WEIGHT1":"6000","WEIGHT2":"7000","WEIGHT3":"7000","WEIGHT4":"5000","VALUME1":"6000","VALUME2":"7000","VALUME3":"8000","VALUME4":"8000","PEOPLE":"24879"},{"TIME":"2020-10","WEIGHT1":"6000","WEIGHT2":"7000","WEIGHT3":"5000","WEIGHT4":"6000","VALUME1":"7000","VALUME2":"5000","VALUME3":"6000","VALUME4":"9000","PEOPLE":"28740"},{"TIME":"2020-11","WEIGHT1":"6000","WEIGHT2":"9000","WEIGHT3":"5000","WEIGHT4":"6000","VALUME1":"9000","VALUME2":"8000","VALUME3":"7000","VALUME4":"6000","PEOPLE":"28742"},{"TIME":"2020-12","WEIGHT1":"5000","WEIGHT2":"6000","WEIGHT3":"7000","WEIGHT4":"8000","VALUME1":"9000","VALUME2":"8000","VALUME3":"7000","VALUME4":"6000","PEOPLE":"29869"},{"TIME":"2020-01","WEIGHT1":"6000","WEIGHT2":"7000","WEIGHT3":"6000","WEIGHT4":"7000","VALUME1":"9000","VALUME2":"8000","VALUME3":"700","VALUME4":"600","PEOPLE":"25623"}]
+[{id: 1, week: 1, recycled: 780, hazardous: 300, kitchen: 1200, other: 230},…]
 ```
 
-## 获取年表垃圾桶数据
-- 路径：yearly
+## 获取每月垃圾桶数据
+- 路径：monitorMonth
 - 请求参数：无
 - 请求类型：get
 - 响应结果
 
 ```json
-[{"TIME":"2020","WEIGHT1":"50000","WEIGHT2":"52000","WEIGHT3":"50000","WEIGHT4":"58000","VALUME1":"56200","VALUME2":"69800","VALUME3":"75600","VALUME4":"85600","PEOPLE":"325857"}]
+[{id: 1, month: 1, recycled: 120, hazardous: 80, kitchen: 30, other: 23},…]
 ```
+
+## 获取每年垃圾桶数据
+
+- 路径：monitorYear
+- 请求参数：无
+- 请求类型：get
+- 响应结果
+
+```json
+[{id: 1, year: 19, recycled: 23134, hazardous: 5432, kitchen: 12432, other: 5436},…]
+```
+
+## 获取每个垃圾箱的具体数据
+
+- 路径：boxList
+- 请求参数：id (目前可选值为1,2,3,4)
+- 请求类型：get
+- 响应结果
+
+```json
+[{id: 1, boxNum: 1, capacity: 60, temp: 26, gas: 548, recycled: 780, hazardous: 300, kitchen: 1200,…}
+```
+
+## 获取人群和垃圾总量的预测
+
+- 路径：predict
+- 请求参数：无
+- 请求类型：get
+- 响应结果
+
+```json
+[{id: 1, month: 1, people: 1036, recycled: 1666, hazardous: 327, kitchen: 500, other: 327},…]
+```
+
+## 获取垃圾箱实时数据的变化情况
+
+**更改了体积的处理，直接返回具体的百分比**
+
+- 路径：boxDetail
+- 请求参数：无
+- 请求类型：get
+- 响应结果
+
+```json
+[{LOG_ID: 221, TIME: "2020-09-11 17:24:35", TEMP: "29", HUMI: "46", NUMBER: "3", WEIGHT1: "2",…}]
+```
+
